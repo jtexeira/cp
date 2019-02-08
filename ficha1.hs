@@ -16,10 +16,10 @@ cenas4 :: (Int, Int) -> Int
 cenas4 = succ . (*) 2 . uncurry (+)
 
 length' :: [a] -> Int
-length' = foldr (\_ -> (+) 1) 0
+length' = foldr (const succ) 0
 
 reverse' :: [a] -> [a]
-reverse' = foldr (\x l -> x : l) []
+reverse' = foldr (\x l -> (:)) []
 
 catMaybes' :: [Maybe a] -> [a]
 catMaybes' = map fromJust . filter isJust
