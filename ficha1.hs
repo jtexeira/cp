@@ -19,7 +19,7 @@ length' :: [a] -> Int
 length' = foldr (const succ) 0
 
 reverse' :: [a] -> [a]
-reverse' = foldr (\x l -> (:)) []
+reverse' = foldl (flip (:)) []
 
 catMaybes' :: [Maybe a] -> [a]
 catMaybes' = map fromJust . filter isJust
