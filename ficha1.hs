@@ -34,9 +34,7 @@ flip' f b a = f a b
 
 --7
 concat' :: [[a]] -> [a]
-concat' [[]] = []
-concat' [] = []
-concat' (h:t) = h ++ concat' t
+concat' = foldr (++) [] 
 --9
 m :: (a -> b) -> [a] -> [b]
 m f = foldr ((:) . f) []
